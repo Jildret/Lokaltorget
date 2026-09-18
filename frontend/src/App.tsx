@@ -11,6 +11,7 @@ import CreateSpaceRequest from './pages/CreateSpaceRequest'
 import Admin from './pages/Admin'
 import MyPages from './pages/MyPages'
 import EditProperty from './pages/EditProperty'
+import VerifyEmail from './pages/VerifyEmail'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/mina-sidor" element={<MyPages />} />
           <Route path="/redigera-lokal/:id" element={<EditProperty />} />
+          <Route path="/verifiera" element={<VerifyEmail />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

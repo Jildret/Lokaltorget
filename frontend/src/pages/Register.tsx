@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import api from '../api/client'
 import { getErrorMessage } from '../api/errorHandling'
 
@@ -8,13 +9,14 @@ function Register() {
   const [role, setRole] = useState('seeker')
   const [message, setMessage] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setMessage('')
     try {
       await api.post('/auth/register', { email, password, role })
-      setMessage('Konto skapat! Du kan nu logga in.')
+      navigate('/verifiera', { state: { email } })
     } catch (err: any) {
       setMessage(getErrorMessage(err))
     }
